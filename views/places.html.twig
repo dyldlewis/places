@@ -9,6 +9,7 @@
             <ul>
                 {% for place in places %}
                     <li>{{ place.getCity }}</li>
+                    <p><img src="{{ place.getImage }}"></p>
                 {% endfor %}
             </ul>
         {% endif %}
@@ -16,6 +17,8 @@
     <form action='/places' method='post'>
         <label for='city'>Places you've been</label>
         <input id='city' name='city' type='text'>
+        <label for='image'>Input image URL</label>
+        <input id='image' name='image' type='text'>
 
         <button type='submit'>Add City</button>
     </form>
