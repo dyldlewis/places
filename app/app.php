@@ -21,4 +21,9 @@
       return $app["twig"]->render("places.html.twig", array("places" => Place::getAll()));
     });
 
+    $app->post("/places", function( use ($app) {
+      $place = new Place($_POST['city']);
+      $place->save();
+      return $app['twig']->render('generate_place.html.twig', array('newcity' => $place));
+    });
  ?>
