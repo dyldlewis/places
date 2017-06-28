@@ -18,12 +18,19 @@
 
 
     $app->get("/", function() use ($app) {
-      return $app["twig"]->render("places.html.twig", array("places" => Place::getAll()));
+        return $app["twig"]->render("places.html.twig", array("places" => Place::getAll()));
     });
 
-    $app->post("/places", function( use ($app) {
-      $place = new Place($_POST['city']);
-      $place->save();
-      return $app['twig']->render('generate_place.html.twig', array('newcity' => $place));
+    $app->post("/places", function() use ($app) {
+        $place = new Place($_POST['city']);
+        $place->save();
+        return $app['twig']->render('generate_place.html.twig', array('newcity' => $place));
     });
+
+    $app->post("/delete_places", function() use ($app) {
+        Place::deleteAll();
+        return $app['twig']->render('delete_places.html.twig');
+    });
+
+    return $app;
  ?>
