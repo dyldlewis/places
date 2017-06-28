@@ -11,12 +11,14 @@
 
     $app = new Silex\Application();
 
-    $app->resister(new Silex\Provider\TwigServiceProvider(), array(
+    $app->register(new Silex\Provider\TwigServiceProvider(), array(
         "twig.path" => __DIR__."/../views"
     ));
 
 
 
-
+    $app->get("/", function() use ($app) {
+      return $app["twig"]->render("places.html.twig", array("places" => Place::getAll()));
+    });
 
  ?>

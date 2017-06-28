@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>YOU HAVE BEEN NOWHERE</title>
+</head>
+<body>
+    <h1>Places you've been</h1>
+    {% if place is not empty %}
+        <p>Here are all your places:</p>
+        <ul>
+            {% for place in places %}
+                <li>{{ place.getCity }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action='/places' method='post'>
+        <label for='city'>Places you've been</label>
+        <input id='city' name='city' type='text'>
+
+        <button type='submit'>Add City</button>
+    </form>
+    <form action='/delete_tasks' method='post'>
+        <button type='submit'>delete</button>
+    </form>
+</body>
+</html>
