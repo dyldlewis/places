@@ -24,11 +24,11 @@ _This PHP exercise allows the user to enter cities that create a viewable Places
 * Enter in places to see the list, and empty the list when complete!
 
 ## Specifications
-* It returns a list of places that the user enters.
-  * Example Input: 'Portland', 'Dubai'
+* It returns a list of places with images that the user enters.
+  * Example Input: ('Portland', img/url), ('Dubai', img/url)
   * Example Output:
-    * Portland
-    * Dubai
+    * Portland - image
+    * Dubai - image
 * It clears the list when the clear button is pressed.
   * Example Input: *clear button pressed*
   * Example Output: List is cleared
